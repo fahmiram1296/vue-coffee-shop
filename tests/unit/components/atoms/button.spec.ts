@@ -1,30 +1,25 @@
-import { shallowMount } from "@vue/test-utils";
-import Text from "@/components/atoms/Text/index.vue";
+import { mount } from "@vue/test-utils";
+import Button from "@/components/atoms/Button/index.vue";
 
-describe("Text.vue", () => {
-  it("Render text with passed content", () => {
-    const wrapper = shallowMount(Text, {
-      slots: {
-        default: "Main Title",
-      },
-    });
-    expect(wrapper.html()).toContain("Main Title");
-  });
-  it("Render text with right tag and style can be custom", () => {
-    const wrapper = shallowMount(Text, {
-      slots: {
-        default: "Main Title",
-      },
+describe("Button.vue", () => {
+  it("Render button with right button text", () => {
+    const textButton = "submit";
+    const wrapper = mount(Button, {
       props: {
-        type: "h1",
-        styles: {
-          fontSize: "1rem",
-        },
+        text: textButton,
+        handleClick: jest.fn,
       },
     });
-    expect(wrapper.find("h1").exists()).toBe(true);
-    expect(wrapper.find("#container-text").attributes().style).toBe(
-      "font-size: 1rem;"
-    );
+    expect(wrapper.find("#button-container").text()).toEqual(textButton);
+  });
+  it("Trigger Button", async () => {
+    const textButton = "submit";
+    const wrapper = mount(Button, {
+      props: {
+        text: textButton,
+        handleClick: jest.fn,
+      },
+    });
+    await wrapper.find("#button-container").trigger("click");
   });
 });

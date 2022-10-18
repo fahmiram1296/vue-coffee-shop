@@ -1,8 +1,15 @@
+<script lang="ts">
+import { defineComponent } from "vue";
+import Header from "@/views/smart-component/Header/index.vue";
+
+export default defineComponent({
+  name: "home-page",
+  components: { Header },
+});
+</script>
+
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
+  <Header />
   <router-view />
 </template>
 

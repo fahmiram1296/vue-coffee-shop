@@ -1,9 +1,10 @@
 <!-- Type like 'h1', 'h2', 'h3', or 'p' -->
 
-<script>
+<script lang="ts">
+import { defineComponent } from "vue";
 import "./styles.vue";
 
-export default {
+export default defineComponent({
   name: "AtomsText",
   props: {
     styles: Object,
@@ -15,7 +16,7 @@ export default {
       return tag;
     },
   },
-};
+});
 </script>
 
 <!-- Ui Render -->

@@ -1,9 +1,22 @@
 import { createStore } from "vuex";
+import {
+  cartGetters,
+  cartMutations,
+  cartStates,
+  cartActions,
+} from "./storeStateMutations/cart";
 
 export default createStore({
-  state: {},
-  getters: {},
-  mutations: {},
-  actions: {},
-  modules: {},
+  state: {
+    cartStates,
+  },
+  mutations: {
+    ...cartMutations,
+  },
+  getters: {
+    ...cartGetters,
+  },
+  actions: {
+    ...cartActions,
+  },
 });
